@@ -16,7 +16,10 @@ function saveImage(imageBinary, fileName) {
       if(err) {
         reject(err);
       }
-      resolve("File Saved");
+      // remove the . from the filePath
+      // ./media/img-1.jpg -> /media/img-1.jpg
+      let serverFilePath = filePath.substr(1);
+      resolve(serverFilePath);
     });
   });
   return promise;

@@ -15,10 +15,10 @@ module.exports = function (io) {
       if(req.body && req.body.dataUri) {
         let promiseSaveImage = _saveImage(req.body.dataUri);
 
-        promiseSaveImage.then((successMessage) => {
+        promiseSaveImage.then((serverFilePath) => {
           let msg = "Yay! saveImage done!";
-          console.log(msg);
-          io.emit('chat message', msg);
+          console.log(serverFilePath);
+          io.emit('chat message', serverFilePath);
           res.json({msg : 'saveItem and saveImage ok'});
 
         }).catch(function(reason) {
