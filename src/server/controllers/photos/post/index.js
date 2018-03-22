@@ -8,20 +8,28 @@ function _saveImage(dataUri) {
   return db.saveImage(data, fileName);
 }
 
-exports.saveImage = (req, res) => {
-  if(req.body && req.body.dataUri) {
-    let promiseSaveImage = _saveImage(req.body.dataUri);
+module.exports = function (io) {
+    var module = {};
 
-    promiseSaveImage.then((successMessage) => {
-      console.log("Yay! saveImage done!");
-      res.json({msg : 'saveItem and saveImage ok'});
+    module.saveImage = (req, res) => {
+      if(req.body && req.body.dataUri) {
+        let promiseSaveImage = _saveImage(req.body.dataUri);
 
-    }).catch(function(reason) {
-      console.log('rejection promiseSaveImage')
-      res.status(400).json({msg : 'saveImage error! ' + reason });
-    });
+        promiseSaveImage.then((successMessage) => {
+          let msg = "Yay! saveImage done!";
+          console.log(msg);
+          io.emit('chat message', msg);
+          res.json({msg : 'saveItem and saveImage ok'});
 
-  } else {
-    res.status(400).json({msg : 'saveImage error! ' + 'No dataUri' });
-  }
-}
+        }).catch(function(reason) {
+          console.log('rejection promiseSaveImage')
+          res.status(400).json({msg : 'saveImage error! ' + reason });
+        });
+
+      } else {
+        res.status(400).json({msg : 'saveImage error! ' + 'No dataUri' });
+      }
+    }
+
+    return module;
+};

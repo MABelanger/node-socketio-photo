@@ -2,6 +2,10 @@
 
 const photos = require('./photos');
 
-module.exports = {
-  photos
+module.exports = function (io) {
+    var module = {};
+
+    module.photos = photos(io)
+
+    return module;
 };
