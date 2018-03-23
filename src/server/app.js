@@ -5,13 +5,18 @@ const path = require("path");
 const express = require('express');
 const bodyParser = require('body-parser')
 
+const cors = require('./cors');
+
 let app = express();
 
+if(process.env.NODE_CORS === 'true') {
+  app.use(cors.enable);
+}
 
 /* SocketIo */
 let http = require('http').Server(app);
 var io = require('socket.io')(http);
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 9002;
 
 
 const apiController = require('./controllers/api')(io);
@@ -34,17 +39,7 @@ function cbImageSaved(imagePath){
 
 app.post('/api/photos', apiController.photos.post.saveImage); // Create
 
-
-// // Listen to the port 9001
-// app.listen(PORT);
-// console.log('http server started at : 0.0.0.0:' + PORT);
-//
-
-
-
-
-
-app.get('/', function(req, res){
+app.get('/screen/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
