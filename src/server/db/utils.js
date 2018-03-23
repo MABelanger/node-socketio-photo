@@ -1,7 +1,5 @@
 'use strict';
 
-let fileNumber = 0;
-
 function _decodeBase64(dataUri) {
   let matches = dataUri.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
   let file = {
@@ -17,24 +15,26 @@ function _decodeBase64(dataUri) {
   return file;
 }
 
-function _getFileName(extention) {
+function _getFileName(extention, fileNumber) {
   fileNumber += 1;
   return "img-" + fileNumber + "." + extention;
 }
 
 function _getExtention(fileType) {
-  let typeArr = fileType.split('/');
-  if(typeArr.length === 2 && typeArr[1]){
-    return typeArr[1];
+  if(fileType) {
+    let typeArr = fileType.split('/');
+    if(typeArr.length === 2 && typeArr[1]){
+      return typeArr[1];
+    }
   }
   // return bin by default
   return "bin";
 }
 
-function getDataAndFileName(dataUri) {
+function getDataAndFileName(dataUri, fileNumber) {
   let {data, type} = _decodeBase64(dataUri);
   let extention = _getExtention(type)
-  let fileName = _getFileName(extention);
+  let fileName = _getFileName(extention, fileNumber);
 
   return {
     data,

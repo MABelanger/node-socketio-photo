@@ -1,23 +1,14 @@
 'use strict';
 
-let db = require('../../../db');
-let utils = require('./utils');
-
-function _saveImage(dataUri) {
-  let {data, fileName} = utils.getDataAndFileName(dataUri);
-  return db.saveImage(data, fileName);
-}
-
-module.exports = function (io) {
+module.exports = function (io, db) {
     var module = {};
 
     module.saveImage = (req, res) => {
       if(req.body && req.body.dataUri) {
-        let promiseSaveImage = _saveImage(req.body.dataUri);
+        let promiseSaveImage = db.saveImage(req.body.dataUri);
 
         promiseSaveImage.then((serverFilePath) => {
           let msg = "Yay! saveImage done!";
-          console.log(serverFilePath);
           io.emit('chat message', serverFilePath);
           res.json({msg : 'saveItem and saveImage ok'});
 
