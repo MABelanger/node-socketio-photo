@@ -8,10 +8,10 @@ module.exports = function (io, db) {
         let promiseSaveImage = db.saveImage(req.body.dataUri);
 
         console.log(req.connection.remoteAddress)
-        promiseSaveImage.then((serverFilePath) => {
+        promiseSaveImage.then((absoluteFilePath) => {
 
-          io.emit('newImage', serverFilePath);
-          res.json({msg : 'newImage' + serverFilePath });
+          io.emit('newImage', absoluteFilePath);
+          res.json({msg : 'newImage' + absoluteFilePath });
 
         }).catch(function(reason) {
           console.log('rejection promiseSaveImage')

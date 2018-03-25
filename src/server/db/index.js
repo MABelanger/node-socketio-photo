@@ -2,14 +2,15 @@
 
 let fs = require('fs');
 let utils = require('./utils');
-let objDb = require('./objDb');
+let imageDb = require('./imageDb');
 
 
 function saveImage(dataUri) {
 
-  objDb.incrementFileNumber();
-  let fileNumber = objDb.getFileNumber();
+  imageDb.incrementNumber();
+  let fileNumber = imageDb.getNumber();
   let {data, fileName} = utils.getDataAndFileName(dataUri, fileNumber);
+
 
   let promise = new Promise( (resolve, reject) => {
     if (!data) {
@@ -17,14 +18,16 @@ function saveImage(dataUri) {
       return;
     }
 
-    let filePath = "./media/" + fileName;
+    let relativeFilePath = "./media/" + fileName;
 
-    fs.writeFile(filePath, data, function(err) {
+    fs.writeFile(relativeFilePath, data, function(err) {
       if(err) {
         reject(err);
       }
-      objDb.updateImage(filePath);
-      resolve(objDb.getLastServerFilePath());
+      let info = imageDb.update(relativeFilePath);
+
+      console.log('absoluteFilePath', info.absoluteFilePath)
+      resolve(info.absoluteFilePath);
     });
   });
   return promise;
@@ -32,6 +35,5 @@ function saveImage(dataUri) {
 
 module.exports = {
   saveImage,
-  getLastServerFilePath : objDb.getLastServerFilePath,
-  getLastImageDateFromNow: objDb.getLastImageDateFromNow
+  getInfoImage: imageDb.getInfo
 }

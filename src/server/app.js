@@ -38,11 +38,10 @@ app.post('/api/photos', apiController.photos.post.saveImage); // Create
 
 io.on('connection', function(socket){
 
-  let serverFilePath = db.getLastServerFilePath();
-  let lastImageDateFromNow = db.getLastImageDateFromNow();
+  let infoImage = db.getInfoImage();
 
-  console.log('db', serverFilePath, lastImageDateFromNow)
-  io.emit('newImage', serverFilePath);
+  console.log('db', infoImage.absoluteFilePath, infoImage.dateFromNow)
+  io.emit('newImage', infoImage.absoluteFilePath);
 
 });
 
