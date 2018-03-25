@@ -7,10 +7,11 @@ module.exports = function (io, db) {
       if(req.body && req.body.dataUri) {
         let promiseSaveImage = db.saveImage(req.body.dataUri);
 
+        console.log(req.connection.remoteAddress)
         promiseSaveImage.then((serverFilePath) => {
-          let msg = "Yay! saveImage done!";
-          io.emit('chat message', serverFilePath);
-          res.json({msg : 'saveItem and saveImage ok'});
+
+          io.emit('newImage', serverFilePath);
+          res.json({msg : 'newImage' + serverFilePath });
 
         }).catch(function(reason) {
           console.log('rejection promiseSaveImage')

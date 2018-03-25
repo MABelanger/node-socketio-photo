@@ -2,30 +2,13 @@
 
 let fs = require('fs');
 let utils = require('./utils');
+let objDb = require('./objDb');
 
-let lastServerFilePath = "";
-let fileNumber = 0;
-
-function _setLastServerFilePath(serverFilePath) {
-  lastServerFilePath = serverFilePath;
-}
-
-function getLastServerFilePath() {
-  return lastServerFilePath;
-}
-
-function _getFileNumber() {
-  return fileNumber;
-}
-
-function _incrementFileNumber() {
-  fileNumber+=1;
-}
 
 function saveImage(dataUri) {
 
-  _incrementFileNumber();
-  let fileNumber = _getFileNumber();
+  objDb.incrementFileNumber();
+  let fileNumber = objDb.getFileNumber();
   let {data, fileName} = utils.getDataAndFileName(dataUri, fileNumber);
 
   let promise = new Promise( (resolve, reject) => {
@@ -40,11 +23,8 @@ function saveImage(dataUri) {
       if(err) {
         reject(err);
       }
-      // remove the . from the filePath
-      // ./media/img-1.jpg -> /media/img-1.jpg
-      let serverFilePath = filePath.substr(1);
-      _setLastServerFilePath(serverFilePath);
-      resolve(getLastServerFilePath());
+      objDb.updateImage(filePath);
+      resolve(objDb.getLastServerFilePath());
     });
   });
   return promise;
@@ -52,5 +32,6 @@ function saveImage(dataUri) {
 
 module.exports = {
   saveImage,
-  getLastServerFilePath
+  getLastServerFilePath : objDb.getLastServerFilePath,
+  getLastImageDateFromNow: objDb.getLastImageDateFromNow
 }
