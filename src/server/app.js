@@ -38,10 +38,9 @@ app.post('/api/photos', apiController.photos.post.saveImage); // Create
 
 io.on('connection', function(socket){
 
-  let infoImage = db.getInfoImage();
+  let imageInfo = db.getimageInfo();
 
-  console.log('db', infoImage.absoluteFilePath, infoImage.dateFromNow)
-  io.emit('newImage', infoImage.absoluteFilePath);
+  io.emit('newImage', imageInfo);
 
 });
 

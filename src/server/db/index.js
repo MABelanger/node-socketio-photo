@@ -25,9 +25,7 @@ function saveImage(dataUri) {
         reject(err);
       }
       let imageInfo = fileInfo.update(relativeFilePath);
-
-      console.log('absoluteFilePath', imageInfo.absoluteFilePath)
-      resolve(imageInfo.absoluteFilePath);
+      resolve(imageInfo);
     });
   });
   return promise;
@@ -35,5 +33,5 @@ function saveImage(dataUri) {
 
 module.exports = {
   saveImage,
-  getInfoImage: fileInfo.getInfo
+  getimageInfo: fileInfo.getInfo
 }
