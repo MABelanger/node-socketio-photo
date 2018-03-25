@@ -3,9 +3,9 @@
 let moment = require('moment');
 
 // For simplicity, we do not use a database like mongoDb.
-// Keep note that the variable (imageDb) is reset when the program is reloaded.
+// Keep note that the variable (fileInfo) is reset when the program is reloaded.
 
-let imageDb = {
+let fileInfo = {
   absoluteFilePath : "",
   date: null,
   number: 0
@@ -14,27 +14,27 @@ let imageDb = {
 function _setAbsoluteFilePath(relativeFilePath) {
   // remove the . from the relativeFilePath
   // ./media/img-1.jpg -> /media/img-1.jpg
-  imageDb.absoluteFilePath = relativeFilePath.substr(1);
+  fileInfo.absoluteFilePath = relativeFilePath.substr(1);
 }
 
 function _getAbsoluteFilePath() {
-  return imageDb.absoluteFilePath;
+  return fileInfo.absoluteFilePath;
 }
 
 function _updateDate() {
-  imageDb.imageDate = new Date();
+  fileInfo.imageDate = new Date();
 }
 
 function _getDateFromNow() {
-  return moment(imageDb.imageDate).fromNow();
+  return moment(fileInfo.imageDate).fromNow();
 }
 
 function incrementNumber() {
-  imageDb.number+=1;
+  fileInfo.number+=1;
 }
 
 function getNumber() {
-  return imageDb.number;
+  return fileInfo.number;
 }
 
 function update(relativeFilePath){

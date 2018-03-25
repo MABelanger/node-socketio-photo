@@ -2,13 +2,13 @@
 
 let fs = require('fs');
 let utils = require('./utils');
-let imageDb = require('./imageDb');
+let fileInfo = require('./fileInfo');
 
 
 function saveImage(dataUri) {
 
-  imageDb.incrementNumber();
-  let fileNumber = imageDb.getNumber();
+  fileInfo.incrementNumber();
+  let fileNumber = fileInfo.getNumber();
   let {data, fileName} = utils.getDataAndFileName(dataUri, fileNumber);
 
 
@@ -24,10 +24,10 @@ function saveImage(dataUri) {
       if(err) {
         reject(err);
       }
-      let info = imageDb.update(relativeFilePath);
+      let imageInfo = fileInfo.update(relativeFilePath);
 
-      console.log('absoluteFilePath', info.absoluteFilePath)
-      resolve(info.absoluteFilePath);
+      console.log('absoluteFilePath', imageInfo.absoluteFilePath)
+      resolve(imageInfo.absoluteFilePath);
     });
   });
   return promise;
@@ -35,5 +35,5 @@ function saveImage(dataUri) {
 
 module.exports = {
   saveImage,
-  getInfoImage: imageDb.getInfo
+  getInfoImage: fileInfo.getInfo
 }
