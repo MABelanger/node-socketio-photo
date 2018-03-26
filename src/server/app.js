@@ -22,7 +22,7 @@ const db = require('./db');
 const apiCtrl = require('./controllers/api')(db);
 const io = require('socket.io')(http);
 const socketIoCtrl = require('./controllers/socketIo')(io, db);
-
+socketIoCtrl.onConnection();
 
 app.use(bodyParser.json({limit: '50mb'}));
 
@@ -34,15 +34,13 @@ app.use('/media', express.static(mediaPath))
 // serve index.html + /camera + /screen
 app.use('/', express.static(publicPath))
 
-
 app.post('/api/photos', (req, res) => {
   let promiseCtrl = apiCtrl.photos.post.saveImage(req, res);
-  promiseCtrl.then((imageInfo)=>{
+  promiseCtrl.then((imageInfo) => {
     socketIoCtrl.emitNewImage()
   })
 });
 
-socketIoCtrl.onConnection();
 
 http.listen(port, function(){
   console.log('listening on *:' + port);

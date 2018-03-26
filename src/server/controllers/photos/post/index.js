@@ -12,7 +12,6 @@ module.exports = function (db) {
 
         // console.log(req.connection.remoteAddress)
         promiseDb.then((imageInfo) => {
-
           res.json({msg : 'newImage' + imageInfo });
           resolve(imageInfo);
 

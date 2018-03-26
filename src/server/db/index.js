@@ -19,7 +19,6 @@ function saveImage(dataUri) {
     }
 
     let relativeFilePath = "./media/" + fileName;
-
     fs.writeFile(relativeFilePath, data, function(err) {
       if(err) {
         reject(err);
