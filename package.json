@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "export NODE_CORS=true && nodemon --watch src --exec node src/lib/server.js"
+    "server": "export NODE_CORS=true && nodemon --watch src --exec node src/lib/server.js",
+    "eslint:src": "eslint --ignore-pattern !**/*.{test,mock}.js src/",
+    "eslint:watch": "esw --color --ignore-pattern !**/*.{test,mock}.js src/ -w",
+    "eslint:fix": "eslint --fix src/"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +19,13 @@
     "socket.io": "^2.0.4"
   },
   "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-watch": "^3.1.3",
     "nodemon": "^1.17.2"
   }
 }

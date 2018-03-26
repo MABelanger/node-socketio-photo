@@ -1,7 +1,7 @@
 'use strict';
 
 // Add headers to enable Cross-origin resource sharing (CORS)
-module.exports = function(req, res, next) {
+module.exports = function (req, res, next) {
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', '*');
 

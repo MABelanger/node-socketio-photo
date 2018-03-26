@@ -26,6 +26,6 @@ route.enable();
 
 // Listen to the port.
 const port = process.env.PORT || 9002;
-http.listen(port, function(){
+http.listen(port, function () {
   console.log('listening on *:' + port);
 });

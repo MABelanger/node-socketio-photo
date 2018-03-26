@@ -1,10 +1,10 @@
 'use strict';
 
-function _decodeBase64(dataUri) {
+function _decodeBase64 (dataUri) {
   let matches = dataUri.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
   let file = {
-    type : null,
-    data : null
+    type: null,
+    data: null
   };
 
   if (matches && matches.length === 3) {
@@ -15,30 +15,30 @@ function _decodeBase64(dataUri) {
   return file;
 }
 
-function _getFileName(extention, fileNumber) {
-  return "img-" + fileNumber + "." + extention;
+function _getFileName (extention, fileNumber) {
+  return 'img-' + fileNumber + '.' + extention;
 }
 
-function _getExtention(fileType) {
-  if(fileType) {
+function _getExtention (fileType) {
+  if (fileType) {
     let typeArr = fileType.split('/');
-    if(typeArr.length === 2 && typeArr[1]){
+    if (typeArr.length === 2 && typeArr[1]) {
       return typeArr[1];
     }
   }
   // return bin by default
-  return "bin";
+  return 'bin';
 }
 
-function getDataAndFileName(dataUri, fileNumber) {
+function getDataAndFileName (dataUri, fileNumber) {
   let {data, type} = _decodeBase64(dataUri);
-  let extention = _getExtention(type)
+  let extention = _getExtention(type);
   let fileName = _getFileName(extention, fileNumber);
 
   return {
     data,
     fileName
-  }
+  };
 }
 
 module.exports = {

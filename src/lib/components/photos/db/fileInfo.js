@@ -6,49 +6,49 @@ let moment = require('moment');
 // We use the variable (fileInfo) that reset when the program is reloaded.
 
 let fileInfo = {
-  absoluteFilePath : "",
+  absoluteFilePath: '',
   date: null,
   number: 0
 };
 
-function _setAbsoluteFilePath(relativeFilePath) {
+function _setAbsoluteFilePath (relativeFilePath) {
   // remove the . from the relativeFilePath
   // ./media/img-1.jpg -> /media/img-1.jpg
   fileInfo.absoluteFilePath = relativeFilePath.substr(1);
 }
 
-function _getAbsoluteFilePath() {
+function _getAbsoluteFilePath () {
   return fileInfo.absoluteFilePath;
 }
 
-function _updateDate() {
+function _updateDate () {
   fileInfo.date = new Date();
 }
 
-function _getDateFromNow() {
-  if(fileInfo.date) {
+function _getDateFromNow () {
+  if (fileInfo.date) {
     return moment(fileInfo.date).fromNow();
   }
-  return "";
+  return '';
 }
 
-function incrementNumber() {
-  fileInfo.number+=1;
+function incrementNumber () {
+  fileInfo.number += 1;
 }
 
-function getNumber() {
+function getNumber () {
   return fileInfo.number;
 }
 
-function update(relativeFilePath){
+function update (relativeFilePath) {
   _setAbsoluteFilePath(relativeFilePath);
   _updateDate();
-  return getInfo()
+  return getInfo();
 }
 
-function getInfo(){
+function getInfo () {
   return {
-    absoluteFilePath : _getAbsoluteFilePath(),
+    absoluteFilePath: _getAbsoluteFilePath(),
     dateFromNow: _getDateFromNow()
   };
 }
@@ -58,4 +58,4 @@ module.exports = {
   getInfo,
   incrementNumber,
   getNumber
-}
+};
