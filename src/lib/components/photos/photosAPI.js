@@ -6,8 +6,7 @@ module.exports = function (photosSocketIo) {
   let module = {};
 
   module.create = function (req, res) {
-    let promiseCtrl = photosController.saveImage(req, res);
-    promiseCtrl
+    photosController.saveImage(req, res)
       .then((imageInfo) => {
         photosSocketIo.emitNewImage();
       })
