@@ -5,7 +5,7 @@ const path = require('path');
 
 const ROOT_PATH = path.join(__dirname, '/../../../../');
 
-const mediaPath =  path.join(ROOT_PATH, 'media/');
+const mediaPath = path.join(ROOT_PATH, 'media/');
 const publicPath = path.join(ROOT_PATH, 'public/');
 
 module.exports = function (app, photosSocketIo) {

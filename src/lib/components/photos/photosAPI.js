@@ -10,9 +10,9 @@ module.exports = function (photosSocketIo) {
     promiseCtrl.then((imageInfo) => {
       photosSocketIo.emitNewImage();
     })
-    .catch((err) => {
-      console.log('err', err)
-    });
+      .catch((err) => {
+        console.log('err', err);
+      });
   };
 
   module.onSocketIoConnection = function () {
