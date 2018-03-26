@@ -2,6 +2,7 @@
 const db = require('./db');
 
 let lastInterval = null;
+const SECONDS_INTERVAL = 60;
 
 module.exports = function (io) {
 
@@ -18,7 +19,7 @@ module.exports = function (io) {
     lastInterval = setInterval (()=>{
       let imageInfo = db.getimageInfo();
       _emitNewImage(imageInfo);
-    }, 60 * 1000 );
+    }, SECONDS_INTERVAL * 1000 );
   }
 
   module.emitNewImage = function(){
