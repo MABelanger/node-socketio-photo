@@ -8,17 +8,19 @@ function saveImage (req, res) {
       let promiseDb = db.saveImage(req.body.dataUri);
 
       // console.log(req.connection.remoteAddress)
-      promiseDb.then((imageInfo) => {
-        res.json(imageInfo);
-        resolve(imageInfo);
-      }).catch(function (reason) {
-        console.log('rejection promiseDb');
-        let err = {
-          msg: 'saveImage error! ' + reason
-        };
-        res.status(400).json(err);
-        reject(err);
-      });
+      promiseDb
+        .then((imageInfo) => {
+          res.json(imageInfo);
+          resolve(imageInfo);
+        })
+        .catch(function (reason) {
+          console.log('rejection promiseDb');
+          let err = {
+            msg: 'saveImage error! ' + reason
+          };
+          res.status(400).json(err);
+          reject(err);
+        });
     } else {
       let err = {
         msg: 'saveImage error! ' + 'No dataUri'

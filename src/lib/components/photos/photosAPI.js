@@ -7,9 +7,10 @@ module.exports = function (photosSocketIo) {
 
   module.create = function (req, res) {
     let promiseCtrl = photosController.saveImage(req, res);
-    promiseCtrl.then((imageInfo) => {
-      photosSocketIo.emitNewImage();
-    })
+    promiseCtrl
+      .then((imageInfo) => {
+        photosSocketIo.emitNewImage();
+      })
       .catch((err) => {
         console.log('err', err);
       });
