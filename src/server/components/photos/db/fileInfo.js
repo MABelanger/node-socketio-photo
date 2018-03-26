@@ -3,7 +3,7 @@
 let moment = require('moment');
 
 // For simplicity, we do not use a database like mongoDb.
-// Keep note that the variable (fileInfo) is reset when the program is reloaded.
+// We use the variable (fileInfo) that reset when the program is reloaded.
 
 let fileInfo = {
   absoluteFilePath : "",

@@ -4,13 +4,10 @@ let fs = require('fs');
 let utils = require('./utils');
 let fileInfo = require('./fileInfo');
 
-
 function saveImage(dataUri) {
-
   fileInfo.incrementNumber();
   let fileNumber = fileInfo.getNumber();
   let {data, fileName} = utils.getDataAndFileName(dataUri, fileNumber);
-
 
   let promise = new Promise( (resolve, reject) => {
     if (!data) {
@@ -22,11 +19,14 @@ function saveImage(dataUri) {
     fs.writeFile(relativeFilePath, data, function(err) {
       if(err) {
         reject(err);
+        return;
       }
       let imageInfo = fileInfo.update(relativeFilePath);
       resolve(imageInfo);
     });
+
   });
+
   return promise;
 }
 

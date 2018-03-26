@@ -1,8 +1,9 @@
 'use strict';
+const db = require('./db');
 
-module.exports = function (io, db) {
+let lastInterval = null;
 
-  let lastInterval = null;
+module.exports = function (io) {
 
   let module = {};
 
