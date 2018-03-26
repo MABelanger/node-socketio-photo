@@ -8,7 +8,6 @@ module.exports = function (photosSocketIo) {
   module.create = function (req, res) {
     let promiseCtrl = photosController.saveImage(req, res);
     promiseCtrl.then((imageInfo) => {
-      console.log(photosSocketIo);
       photosSocketIo.emitNewImage();
     });
   };
