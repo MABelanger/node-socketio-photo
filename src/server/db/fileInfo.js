@@ -22,11 +22,14 @@ function _getAbsoluteFilePath() {
 }
 
 function _updateDate() {
-  fileInfo.imageDate = new Date();
+  fileInfo.date = new Date();
 }
 
 function _getDateFromNow() {
-  return moment(fileInfo.imageDate).fromNow();
+  if(fileInfo.date) {
+    return moment(fileInfo.date).fromNow();
+  }
+  return "";
 }
 
 function incrementNumber() {

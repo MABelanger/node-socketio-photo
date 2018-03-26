@@ -16,7 +16,6 @@ function _decodeBase64(dataUri) {
 }
 
 function _getFileName(extention, fileNumber) {
-  fileNumber += 1;
   return "img-" + fileNumber + "." + extention;
 }
 

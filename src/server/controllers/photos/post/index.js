@@ -10,7 +10,7 @@ module.exports = function (db) {
         if(req.body && req.body.dataUri) {
           let promiseDb = db.saveImage(req.body.dataUri);
 
-          console.log(req.connection.remoteAddress)
+          // console.log(req.connection.remoteAddress)
           promiseDb.then((imageInfo) => {
 
             res.json({msg : 'newImage' + imageInfo });
