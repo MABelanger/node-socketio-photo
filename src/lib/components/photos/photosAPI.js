@@ -9,6 +9,9 @@ module.exports = function (photosSocketIo) {
     let promiseCtrl = photosController.saveImage(req, res);
     promiseCtrl.then((imageInfo) => {
       photosSocketIo.emitNewImage();
+    })
+    .catch((err) => {
+      console.log('err', err)
     });
   };
 

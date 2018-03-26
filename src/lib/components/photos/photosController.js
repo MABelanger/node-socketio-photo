@@ -16,7 +16,7 @@ function saveImage (req, res) {
         let err = {
           msg: 'saveImage error! ' + reason
         };
-        res.status(400).json();
+        res.status(400).json(err);
         reject(err);
       });
     } else {
