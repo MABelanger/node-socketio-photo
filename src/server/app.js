@@ -15,12 +15,13 @@ if(process.env.NODE_CORS === 'true') {
 
 /* SocketIo */
 let http = require('http').Server(app);
-var io = require('socket.io')(http);
-var port = process.env.PORT || 9002;
 
+let port = process.env.PORT || 9002;
 
-const apiController = require('./controllers/api')(io);
 const db = require('./db');
+const apiCtrl = require('./controllers/api')(db);
+const io = require('socket.io')(http);
+const socketIoCtrl = require('./controllers/socketIo')(io, db);
 
 
 app.use(bodyParser.json({limit: '50mb'}));
@@ -34,15 +35,14 @@ app.use('/media', express.static(mediaPath))
 app.use('/', express.static(publicPath))
 
 
-app.post('/api/photos', apiController.photos.post.saveImage); // Create
-
-io.on('connection', function(socket){
-
-  let imageInfo = db.getimageInfo();
-
-  io.emit('newImage', imageInfo);
-
+app.post('/api/photos', (req, res) => {
+  let promiseCtrl = apiCtrl.photos.post.saveImage(req, res);
+  promiseCtrl.then((imageInfo)=>{
+    socketIoCtrl.emitNewImage()
+  })
 });
+
+socketIoCtrl.onConnection();
 
 http.listen(port, function(){
   console.log('listening on *:' + port);

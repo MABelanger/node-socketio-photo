@@ -1,15 +1,11 @@
 'use strict';
 
-const db = require('../../db');
-
 const post = require('./post');
 
-module.exports = function (io) {
+module.exports = function (db) {
     var module = {};
 
-
-    module.post = post(io, db)
-    module.db = db;
+    module.post = post(db)
 
     return module;
 };

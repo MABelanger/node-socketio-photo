@@ -1,26 +1,36 @@
 'use strict';
 
-module.exports = function (io, db) {
+module.exports = function (db) {
     var module = {};
 
     module.saveImage = (req, res) => {
-      if(req.body && req.body.dataUri) {
-        let promiseSaveImage = db.saveImage(req.body.dataUri);
 
-        console.log(req.connection.remoteAddress)
-        promiseSaveImage.then((imageInfo) => {
+      let promiseCtrl = new Promise((resolve, reject) => {
 
-          io.emit('newImage', imageInfo);
-          res.json({msg : 'newImage' + imageInfo });
+        if(req.body && req.body.dataUri) {
+          let promiseDb = db.saveImage(req.body.dataUri);
 
-        }).catch(function(reason) {
-          console.log('rejection promiseSaveImage')
-          res.status(400).json({msg : 'saveImage error! ' + reason });
-        });
+          console.log(req.connection.remoteAddress)
+          promiseDb.then((imageInfo) => {
 
-      } else {
-        res.status(400).json({msg : 'saveImage error! ' + 'No dataUri' });
-      }
+            res.json({msg : 'newImage' + imageInfo });
+            resolve(imageInfo);
+
+          }).catch(function(reason) {
+            console.log('rejection promiseDb')
+            let err = {msg : 'saveImage error! ' + reason };
+            res.status(400).json();
+            reject(err);
+          });
+
+        } else {
+          let err = {msg : 'saveImage error! ' + 'No dataUri' };
+          res.status(400).json(err);
+          reject(err);
+        }
+      });
+
+      return promiseCtrl;
     }
 
     return module;
