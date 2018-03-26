@@ -17,7 +17,7 @@ module.exports = function (io, db) {
     lastInterval = setInterval (()=>{
       let imageInfo = db.getimageInfo();
       _emitNewImage(imageInfo);
-    }, 1 * 1000 );
+    }, 60 * 1000 );
   }
 
   module.emitNewImage = function(){

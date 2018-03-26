@@ -3,7 +3,7 @@
 const post = require('./post');
 
 module.exports = function (db) {
-    var module = {};
+    let module = {};
 
     module.post = post(db)
 

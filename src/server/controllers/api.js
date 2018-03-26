@@ -3,7 +3,7 @@
 const photos = require('./photos');
 
 module.exports = function (db) {
-    var module = {};
+    let module = {};
 
     module.photos = photos(db)
 
