@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "export NODE_CORS=true && nodemon --watch src --exec node src/server/server.js"
+    "server": "export NODE_CORS=true && nodemon --watch src --exec node src/lib/server.js"
   },
   "author": "",
   "license": "ISC",
