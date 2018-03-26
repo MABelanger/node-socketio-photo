@@ -3,8 +3,10 @@
 const express = require('express');
 const path = require('path');
 
-const mediaPath = path.join(__dirname, '/../../../../', 'media/');
-const publicPath = path.join(__dirname, '/../../../../', 'public/');
+const ROOT_PATH = path.join(__dirname, '/../../../../');
+
+const mediaPath =  path.join(ROOT_PATH, 'media/');
+const publicPath = path.join(ROOT_PATH, 'public/');
 
 console.log('mediaPath', mediaPath)
 
