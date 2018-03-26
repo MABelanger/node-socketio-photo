@@ -21,8 +21,8 @@ if (process.env.NODE_CORS === 'true') {
 }
 
 // All routing
-let routes = require('./routes')(app, photosSocketIo);
-routes.enable();
+let photosRoutes = require('./components/photos/photosRoutes')(app, photosSocketIo);
+photosRoutes.enable();
 
 // Listen to the port.
 const port = process.env.PORT || 9002;

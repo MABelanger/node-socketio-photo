@@ -3,11 +3,13 @@
 const express = require('express');
 const path = require('path');
 
-const mediaPath = path.join(__dirname, '/../../', 'media/');
-const publicPath = path.join(__dirname, '/../../', 'public/');
+const mediaPath = path.join(__dirname, '/../../../../', 'media/');
+const publicPath = path.join(__dirname, '/../../../../', 'public/');
+
+console.log('mediaPath', mediaPath)
 
 module.exports = function (app, photosSocketIo) {
-  const photosAPI = require('./components/photos/photosAPI')(photosSocketIo);
+  const photosAPI = require('./photosAPI')(photosSocketIo);
   let module = {};
 
   module.enable = function () {
