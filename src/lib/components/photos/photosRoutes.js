@@ -8,8 +8,6 @@ const ROOT_PATH = path.join(__dirname, '/../../../../');
 const mediaPath =  path.join(ROOT_PATH, 'media/');
 const publicPath = path.join(ROOT_PATH, 'public/');
 
-console.log('mediaPath', mediaPath)
-
 module.exports = function (app, photosSocketIo) {
   const photosAPI = require('./photosAPI')(photosSocketIo);
   let module = {};
