@@ -13,12 +13,16 @@ function saveImage (req, res) {
         resolve(imageInfo);
       }).catch(function (reason) {
         console.log('rejection promiseDb');
-        let err = {msg: 'saveImage error! ' + reason };
+        let err = {
+          msg: 'saveImage error! ' + reason
+        };
         res.status(400).json();
         reject(err);
       });
     } else {
-      let err = {msg: 'saveImage error! ' + 'No dataUri' };
+      let err = {
+        msg: 'saveImage error! ' + 'No dataUri'
+      };
       res.status(400).json(err);
       reject(err);
     }

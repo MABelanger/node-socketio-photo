@@ -1,6 +1,7 @@
 'use strict';
 
 function _decodeBase64 (dataUri) {
+  // eslint-disable-next-line no-useless-escape
   let matches = dataUri.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
   let file = {
     type: null,
@@ -10,7 +11,7 @@ function _decodeBase64 (dataUri) {
   if (matches && matches.length === 3) {
     // get the type and convert the data base64 to binary
     file.type = matches[1];
-    file.data = new Buffer(matches[2], 'base64');
+    file.data = Buffer.from(matches[2], 'base64');
   }
   return file;
 }

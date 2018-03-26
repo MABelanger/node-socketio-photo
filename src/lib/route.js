@@ -1,9 +1,10 @@
 'use strict';
 
 const express = require('express');
+const path = require('path');
 
-const mediaPath = __dirname + '/../../' + 'media/';
-const publicPath = __dirname + '/../../' + 'public/';
+const mediaPath = path.join(__dirname, '/../../', 'media/');
+const publicPath = path.join(__dirname, '/../../', 'public/');
 
 module.exports = function (app, photosSocketIo) {
   const photosAPI = require('./components/photos/photosAPI')(photosSocketIo);
