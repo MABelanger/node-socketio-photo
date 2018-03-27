@@ -51,6 +51,6 @@ Le code source **back-end** [node-socketio-photo](https://github.com/MABelanger/
 
 Le client **front-end '/camera'** [react-send-photo](https://github.com/MABelanger/react-send-photo)
 
-Le client **front-end '/screen'** inclus dans [le dossier '/public'](https://github.com/MABelanger/node-socketio-photo/tree/master/public) de node-socketio-photo
+Le client **front-end '/screen'** inclus dans [le dossier '/public'](https://github.com/MABelanger/node-socketio-photo/tree/master/public/screen) de node-socketio-photo
 
 La **demo** sur [mquartier](https://mquartier.com)
