@@ -41,10 +41,10 @@ Les techniques utilisé sont :
         - socket.io.
 ```
 
-Au niveau back-end les images sont recu via l'api REST '/api/photos' qui reçoit les posts via un JSON contenant l'image encodée en base64. L'image est ensuite sauvegardée sur le serveur dans le dossier '/media'. Toutes les images sont sauvegardés et incrémentées du nom de fichier (-1, -2, -3...) mais seulement la dernière image est affiché.
+Au niveau back-end les images sont recu via l'api REST **'/api/photos'** qui reçoit les posts via un JSON contenant l'image encodée en base64. L'image est ensuite sauvegardée sur le serveur dans le dossier **'/media'**. Toutes les images sont sauvegardés et incrémentées du nom de fichier **(-1, -2, -3...)** mais seulement la dernière image est affiché.
 
 
-Au niveau front-end '/camera' react utilise un sous module **'react-html5-camera-photo'** disponible sur npm :
+Au niveau front-end **'/camera'** utilise un sous module **'react-html5-camera-photo'** disponible sur npm :
 https://www.npmjs.com/package/react-html5-camera-photo
 
 Le code source back-end est disponible sur github :
