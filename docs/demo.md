@@ -7,7 +7,7 @@ L'application est découplée à l'aide d'un **back-end** et de **2 clients fron
 
 le **back-end** reçoit des nouvelles images et affichent automatiquement la dernière photo envoyée sur tous les clients connectés.
 
-Par exemple si des clients sont connecté au serveur à l'adresse **'/screen'**. Les clients verront la dernière photo envoyée. Or, si par la suite un utilisateur utilise la caméra à l'adresse **'/camera'** et envoie une nouvelle photo via un POST les clients **'/screen'** sera en mesure d'afficher automatiquement cette dernière photo. Pour permettre le rafraichissement automatique de la photo envoyé par les clients '/camera', les clients '/screen' se connectent au serveur sur un canal de socket.io.
+Par exemple si des clients sont connecté au serveur à l'adresse **'/screen'**. Les clients verront la dernière photo envoyée. Or, si par la suite un utilisateur utilise la caméra à l'adresse **'/camera'** et envoie une nouvelle photo via un POST, les clients **'/screen'** sera en mesure d'afficher automatiquement cette dernière photo. Pour permettre le rafraichissement automatique de la photo envoyé par les clients **'/camera'**, les clients **'/screen'** se connectent au serveur sur un canal de socket.io.
 
 Les deux clients permettant d'interagir avec le back-end son donc situé aux URL **'/screen'** et **'/camera'**:
 
@@ -38,8 +38,7 @@ Les techniques utilisé sont :
 Au niveau back-end les images sont recu via l'api REST **'/api/photos'** qui reçoit les posts via un JSON contenant l'image encodée en base64. L'image est ensuite sauvegardée sur le serveur dans le dossier **'/media'**. Toutes les images sont sauvegardés et incrémentées du nom de fichier **(-1, -2, -3...)** mais seulement la dernière image est affiché.
 
 
-Au niveau front-end **'/camera'** utilise un sous module **'react-html5-camera-photo'** disponible sur npm :
-https://www.npmjs.com/package/react-html5-camera-photo
+Au niveau front-end **'/camera'** utilise un module npm [**'react-html5-camera-photo'**](https://www.npmjs.com/package/react-html5-camera-photo) qui peut être réutiliser dans d'autre applications. 
 
 Le code source back-end est disponible sur github :
 https://github.com/MABelanger/node-socketio-photo
