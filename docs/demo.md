@@ -23,11 +23,11 @@ Par exemple, pour voir l'icon en mode screen : https://mquartier.com/screen/
 
 ### Technologie utilisé
 ```
-  pour le back End :
+  back-End :
     - NodeJs
     - api REST
     - Socket.Io
-  pour le front-end :
+  front-end :
     - '/Camera' :
         - React
         - api REST
