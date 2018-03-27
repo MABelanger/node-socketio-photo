@@ -1,5 +1,5 @@
 # Demo
-Le but est de démontrer les possibilités d'utiliser socket.io dans les applications simultanées un peu comme Facebook. Il y a une foule d'application potentielle que l'on peut faire avec socket.io.
+Le but est de démontrer les possibilités d'utiliser **socket.io** dans les applications simultanées un peu comme Facebook. Il y a une foule d'application potentielle que l'on peut faire avec socket.io.
 
 Pour ce faire, cette petite démo permet de prendre des photos (caméra) et de les afficher automatiquement (écran)
 
@@ -14,7 +14,7 @@ Les deux clients permettant d'interagir avec le back-end son donc situé aux URL
 ainsi, l'URL '/screen' permet affichait la dernière image (mode écrant) et l'URL '/camera' permet d'envoyer des photos au serveur (mode caméra). Il est possible d'envoyer une photo avec Curl par exemple (voir github back-end).
 
 ```
-Les techniques utilisent sont :
+Les techniques utilisé sont :
   pour le back End :
     - NodeJs
     - api REST
@@ -32,7 +32,7 @@ Les techniques utilisent sont :
 Au niveau back-end les images sont recu via l'api REST '/api/photos' qui reçoit les posts via un JSON contenant l'image encodée en base64. L'image est ensuite sauvegardée sur le serveur dans le dossier '/media'. Toutes les images sont sauvegardés et incrémentées du nom de fichier (-1, -2, -3...) mais seulement la dernière image est affiché.
 
 
-Au niveau front-end '/camera' react utilise un sous module 'react-html5-camera-photo' disponible sur npm :
+Au niveau front-end '/camera' react utilise un sous module **'react-html5-camera-photo'** disponible sur npm :
 https://www.npmjs.com/package/react-html5-camera-photo
 
 Le code source back-end est disponible sur github :
