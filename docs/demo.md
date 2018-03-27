@@ -25,30 +25,29 @@ Par exemple, pour voir l'icon en mode screen : https://mquartier.com/screen/
 ```
   Back-End :
     - NodeJs
-    - api REST
-    - Socket.Io
+    - Api REST
+    - Socket.io
   Front-End :
     - '/Camera' :
         - React
-        - api REST
+        - Api REST
         - Caméra HTML5
     - '/Screen' :
         - Jquery
-        - socket.io.
+        - Socket.io
 ```
 
-Au niveau back-end les images sont recu via l'api REST **'/api/photos'** qui reçoit les posts via un JSON contenant l'image encodée en base64. L'image est ensuite sauvegardée sur le serveur dans le dossier **'/media'**. Toutes les images sont sauvegardés et incrémentées du nom de fichier **(-1, -2, -3...)** mais seulement la dernière image est affiché.
+Pour le **back-end** les images sont recu via l'api REST **'/api/photos'** qui reçoit les posts via un JSON contenant l'image encodée en base64. L'image est ensuite sauvegardée sur le serveur dans le dossier **'/media'**. Toutes les images sont sauvegardés et incrémentées du nom de fichier **(-1, -2, -3...)** mais seulement la dernière image est affiché.
 
 
-Au niveau front-end **'/camera'** utilise un module npm ['react-html5-camera-photo'](https://www.npmjs.com/package/react-html5-camera-photo) qui peut être réutiliser dans d'autre applications.
+Pour le **front-end** **'/camera'** : l'application est fait en react et utilise un module npm ['react-html5-camera-photo'](https://www.npmjs.com/package/react-html5-camera-photo) qui peut être réutiliser dans d'autre applications.
 
-Le code source back-end est disponible sur github :
-https://github.com/MABelanger/node-socketio-photo
+Pour le **front-end** **'/screen'** : la page web se rafraichis automatiquement à l'aide du socket.io à tout les fois que le serveur recoit une nouvelle images, sinon le serveur rafraichis la page à tout les minutes pour remettre à jours le temps que la photo à été mis sur le serveur.
 
-Le client '/camera' est disponible sur github :
-https://github.com/MABelanger/react-send-photo
+Le code source *back-end* [node-socketio-photo](https://github.com/MABelanger/node-socketio-photo)
 
-Le client '/screen' est disponible sur github (inclus dans le dossier '/public' du back-end):
-https://github.com/MABelanger/node-socketio-photo/tree/master/public
+Le client *front-end '/camera'* [react-send-photo](https://github.com/MABelanger/react-send-photo)
 
-L'adresse de la démo est : https://mquartier.com
+Le client *front-end '/screen'* inclus dans [le dossier '/public' de node-socketio-photo](https://github.com/MABelanger/node-socketio-photo/tree/master/public)
+
+La demo sur [mquartier](https://mquartier.com)
