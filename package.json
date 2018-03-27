@@ -6,6 +6,7 @@
   "scripts": {
     "server": "export NODE_CORS=true && nodemon --watch src --exec node src/lib/server.js",
     "test": "mocha ./src/lib/**/test/*.test.js",
+    "testRest": "mocha ./src/lib/**/test/*.testRest.js",
     "test:watch": "npm t -- -w",
     "eslint:src": "eslint --ignore-pattern !**/*.{test,mock}.js src/",
     "eslint:watch": "esw --color --ignore-pattern !**/*.{test,mock}.js src/ -w",
