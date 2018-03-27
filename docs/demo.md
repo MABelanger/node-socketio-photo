@@ -1,7 +1,7 @@
 # Demo node-socketio-photo sur mquartier.com
-Le but est de démontrer les possibilités d'utiliser **socket.io** dans les applications simultanées comme Facebook. Il y a une foule d'application potentielle que l'on peut faire avec socket.io. On peut intéragir directement avec le client et lui informer de quelque chose en temps réel. Par exemple, si le client active un GPS, il est possible de lui proposer selon sa position quel sont les magasin intéressant autour de lui. ect...  
+Le but est de démontrer les possibilités d'utiliser **socket.io** dans les applications simultanées comme Facebook. Il y a une foule d'application potentielle que l'on peut faire avec socket.io. On peut intéragir directement avec le client et l'informer de quelque chose en temps réel. Par exemple, si le client active un GPS, il est possible de lui proposer selon sa position quels sont les magasins intéressant autour de lui. Etc...  
 
-Pour montrer un peu tout ca, cette petite démo permet de prendre des **photos (caméra)** et de les **afficher (écran)** automatiquement.
+Pour montrer un peu tout ca, cette petite démo permet de prendre des **photos (caméra)** et de les **afficher (écran)** automatiquement via **socket.io**.
 
 L'application est découplée à l'aide d'un **back-end** et de **2 clients front-end**. Voici comment elles sont interreliés :
 
