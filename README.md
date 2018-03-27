@@ -1,5 +1,15 @@
 # node-socketio-photo
 
+### clone repo
+```
+$ git clone https://github.com/MABelanger/node-socketio-photo
+```
+
+### Install dependency
+```
+$ npm i
+```
+
 ### run server
 ```
 $ npm run server
@@ -8,7 +18,7 @@ $ npm run server
 ### connect to browser
 http://localhost:9002/screen/
 
-### post json base64 with curl
+### post json base64 in terminal with curl
 
 This is a .gif 128px x 128px gif image encoded in base64. The command post the json to the server.
 ```
