@@ -46,7 +46,7 @@ Pour le **front-end** **'/camera'** : l'application est fait en react et utilise
 Pour le **front-end** **'/screen'** : la page web se rafraichis automatiquement à l'aide du socket.io à tout les fois que le serveur recoit une nouvelle images, sinon le serveur rafraichis la page à tout les minutes pour remettre à jours le temps que la photo à été mis sur le serveur.
 
 
-### Lien code source
+### Liens et codes source
 Le code source **back-end** [node-socketio-photo](https://github.com/MABelanger/node-socketio-photo)
 
 Le client **front-end '/camera'** [react-send-photo](https://github.com/MABelanger/react-send-photo)
