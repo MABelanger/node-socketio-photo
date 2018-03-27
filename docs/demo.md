@@ -43,7 +43,7 @@ Pour le **back-end** les images sont recu via l'api REST **'/api/photos'** qui r
 
 Pour le **front-end** **'/camera'** : l'application est fait en **ReactJS** et utilise un module npm ['react-html5-camera-photo'](https://www.npmjs.com/package/react-html5-camera-photo) qui peut être réutiliser dans d'autre applications.
 
-Pour le **front-end** **'/screen'** : la page web est simplement fait avec **Jquery** et se rafraichis automatiquement à l'aide du socket.io à tout les fois que le serveur recoit une nouvelle images, sinon le serveur rafraichis la page à tout les minutes pour remettre à jours le temps que la photo à été mis sur le serveur.
+Pour le **front-end** **'/screen'** : la page web est simplement fait avec **Jquery** et se rafraichis automatiquement à l'aide de **socket.io** à tout les fois que le serveur recoit une nouvelle images, sinon le serveur rafraichis la page à tout les minutes pour remettre à jours le temps que la photo à été mis sur le serveur.
 
 
 ### Liens et codes source
