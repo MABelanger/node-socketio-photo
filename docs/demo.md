@@ -11,7 +11,7 @@ Par exemple si des clients sont connecté au serveur à l'adresse '/screen'. Les
 
 Les deux clients permettant d'interagir avec le back-end son donc situé aux URL '/screen' et '/camera':
 
-ainsi, l'URL '/screen' permet affichait la dernière image (mode écrant) et l'URL '/camera' permet d'envoyer des photos au serveur (mode caméra). Il est possible d'envoyer une photo avec Curl par exemple (voir github back-end).
+ainsi, l'URL '/screen' permet affichait la dernière image (mode écran) et l'URL '/camera' permet d'envoyer des photos au serveur (mode caméra). Il est possible d'envoyer une photo avec Curl par exemple (voir github back-end).
 
 ```
 Les techniques utilisé sont :
@@ -20,7 +20,7 @@ Les techniques utilisé sont :
     - api REST
     - Socket.Io
   pour le front-end :
-    - '/Caméra' :
+    - '/Camera' :
         - React
         - api REST
         - Caméra HTML5
