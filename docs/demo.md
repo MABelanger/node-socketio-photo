@@ -37,6 +37,7 @@ Par exemple, pour voir l'icon en mode screen : https://mquartier.com/screen/
         - Socket.io
 ```
 
+### Description Front-End & Back-End
 Pour le **back-end** les images sont recu via l'api REST **'/api/photos'** qui reçoit les posts via un JSON contenant l'image encodée en base64. L'image est ensuite sauvegardée sur le serveur dans le dossier **'/media'**. Toutes les images sont sauvegardés et incrémentées du nom de fichier **(-1, -2, -3...)** mais seulement la dernière image est affiché.
 
 
@@ -44,6 +45,8 @@ Pour le **front-end** **'/camera'** : l'application est fait en react et utilise
 
 Pour le **front-end** **'/screen'** : la page web se rafraichis automatiquement à l'aide du socket.io à tout les fois que le serveur recoit une nouvelle images, sinon le serveur rafraichis la page à tout les minutes pour remettre à jours le temps que la photo à été mis sur le serveur.
 
+
+### Lien code source
 Le code source **back-end** [node-socketio-photo](https://github.com/MABelanger/node-socketio-photo)
 
 Le client **front-end '/camera'** [react-send-photo](https://github.com/MABelanger/react-send-photo)
