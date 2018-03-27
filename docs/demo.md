@@ -21,8 +21,8 @@ $ curl -H "Content-Type: application/json" -X POST -d '{"dataUri":"data:image/gi
 
 Par exemple, pour voir l'icon en mode screen : https://mquartier.com/screen/
 
+### Technologie utilisé
 ```
-Les techniques utilisé sont :
   pour le back End :
     - NodeJs
     - api REST
