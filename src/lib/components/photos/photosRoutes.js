@@ -15,10 +15,9 @@ module.exports = function (app, photosSocketIo) {
   let module = {};
 
   module.enable = function () {
-
     // Limit the json to 50mb
     app.use(bodyParser.json({limit: '50mb'}));
-    
+
     app.use('/media', express.static(mediaPath));
 
     // serve index.html + /camera + /screen

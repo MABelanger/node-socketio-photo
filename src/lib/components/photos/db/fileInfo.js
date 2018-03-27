@@ -56,7 +56,7 @@ function getInfo () {
   };
 }
 
-function clearDb() {
+function clearDb () {
   fileInfo = Object.assign({}, INIT_FILE_INFO);
 }
 

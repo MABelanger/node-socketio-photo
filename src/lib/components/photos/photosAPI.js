@@ -8,7 +8,7 @@ module.exports = function (photosSocketIo) {
   module.create = function (req, res) {
     photosController.saveImage(req, res)
       .then((imageInfo) => {
-        if(photosSocketIo) {
+        if (photosSocketIo) {
           photosSocketIo.emitNewImage();
         }
       })
@@ -18,7 +18,7 @@ module.exports = function (photosSocketIo) {
   };
 
   module.onSocketIoConnection = function () {
-    if(photosSocketIo) {
+    if (photosSocketIo) {
       photosSocketIo.onConnection();
     }
   };

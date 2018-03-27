@@ -1,11 +1,10 @@
 'use strict';
 
-let expect = require('chai').expect
+let expect = require('chai').expect;
 let dbFileInfo = require('../fileInfo');
 
 describe('db', function () {
   describe('API fileInfo', function () {
-
     it('should work!', function () {
       expect(true).to.be.true;
     });
@@ -16,7 +15,7 @@ describe('db', function () {
       let result = {
         absoluteFilePath: '',
         dateFromNow: ''
-      }
+      };
       expect(dbFileInfo.getInfo()).deep.equal(result);
     });
 
@@ -27,7 +26,7 @@ describe('db', function () {
       let result = {
         absoluteFilePath: '/directory/image.jpg',
         dateFromNow: 'a few seconds ago'
-      }
+      };
       expect(dbFileInfo.update(relativeFilePath)).deep.equal(result);
 
       it('should getNumber() after update!', function () {

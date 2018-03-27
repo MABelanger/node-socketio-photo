@@ -2,7 +2,6 @@
 
 const express = require('express');
 
-
 // Headers to enable Cross-origin resource sharing (CORS)
 const middlewareCors = require('./middlewares/cors');
 
@@ -12,8 +11,6 @@ let app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const photosSocketIo = require('./components/photos/photosSocketIo')(io);
-
-
 
 // Set CORS to true if the environement NODE_CORS is set.
 if (process.env.NODE_CORS === 'true') {

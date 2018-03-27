@@ -1,17 +1,16 @@
 'use strict';
 
-let expect = require('chai').expect
+let expect = require('chai').expect;
 let db = require('../');
 
 describe('db', function () {
   describe('API db', function () {
-
     it('should work!', function () {
       expect(true).to.be.true;
     });
 
     it('should saveImage()!', function () {
-      let dataUri = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+      let dataUri = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 
       db.clearDb();
 
@@ -20,11 +19,9 @@ describe('db', function () {
         dateFromNow: 'a few seconds ago'
       };
       return db.saveImage(dataUri)
-      .then((fileInfo)=>{
-        expect(fileInfo).deep.equal(result);
-      })
-
+        .then((fileInfo) => {
+          expect(fileInfo).deep.equal(result);
+        });
     });
-
   });
 });
