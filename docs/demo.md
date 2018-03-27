@@ -49,8 +49,8 @@ Pour le **front-end** **'/screen'** : la page web est simplement fait avec **Jqu
 ### Liens et codes source
 Le code source **back-end** [node-socketio-photo](https://github.com/MABelanger/node-socketio-photo)
 
-Le client **front-end '/camera'** [react-send-photo](https://github.com/MABelanger/react-send-photo)
+L'application de client **front-end '/camera'** [react-send-photo](https://github.com/MABelanger/react-send-photo)
 
-Le client **front-end '/screen'** inclus dans [le dossier '/public'](https://github.com/MABelanger/node-socketio-photo/tree/master/public/screen) de node-socketio-photo
+La page index.html de client **front-end '/screen'** inclus dans [le dossier '/public'](https://github.com/MABelanger/node-socketio-photo/blob/master/public/screen/index.html) de node-socketio-photo
 
 La **demo** sur [mquartier](https://mquartier.com)
