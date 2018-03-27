@@ -1,14 +1,14 @@
 'use strict';
 
-var app = require('express')();
+let app = require('express')();
 let photosRoutes = require('../photosRoutes')(app);
 photosRoutes.enable();
 
-var should = require('should');
-var chai = require('chai').should;
-var request = require('supertest');
+let should = require('should');
+let chai = require('chai').should;
+let request = require('supertest');
 
-it('should saveImage img-0.gif!', function (done) {
+it('should saveImage at /api/photos!', function (done) {
   let bodyPost = {
     dataUri: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
   };
@@ -41,5 +41,37 @@ it('should saveImage img-0.gif!', function (done) {
           console.log(res);
           done();
         }); // end
+    });// end
+}); // it
+
+it('should getImage at /media/img-0.gif!', function (done) {
+  let arrayBin = new Buffer([
+    71, 73, 70, 56, 57, 97, 1, 0, 1, 0, 0, 0, 0, 33, 249, 4, 1, 10,
+    0, 1, 0, 44, 0, 0, 0, 0, 1, 0, 1, 0, 0, 2, 2, 76, 1, 0, 59
+  ]);
+  let resource = '/media/img-0.gif';
+
+  request(app)
+    .get(resource)
+    .expect(200, arrayBin)
+    .end(function (res) {
+      console.log(res);
+      done();
+    });// end
+}); // it
+
+it('should getImage at /media/img-1.gif!', function (done) {
+  let arrayBin = new Buffer([
+    71, 73, 70, 56, 57, 97, 1, 0, 1, 0, 0, 0, 0, 33, 249, 4, 1, 10,
+    0, 1, 0, 44, 0, 0, 0, 0, 1, 0, 1, 0, 0, 2, 2, 76, 1, 0, 59
+  ]);
+  let resource = '/media/img-1.gif';
+
+  request(app)
+    .get(resource)
+    .expect(200, arrayBin)
+    .end(function (res) {
+      console.log(res);
+      done();
     });// end
 }); // it
