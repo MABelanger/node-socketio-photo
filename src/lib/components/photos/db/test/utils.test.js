@@ -1,7 +1,7 @@
 'use strict';
 
 let expect = require('chai').expect
-let dbUtils = require('./db/utils');
+let dbUtils = require('../utils');
 
 describe('db', function () {
   describe('API dbUtils', function () {

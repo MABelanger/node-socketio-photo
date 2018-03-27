@@ -1,7 +1,7 @@
 'use strict';
 
 let expect = require('chai').expect
-let dbFileInfo = require('./db/fileInfo');
+let dbFileInfo = require('../fileInfo');
 
 describe('db', function () {
   describe('API fileInfo', function () {
