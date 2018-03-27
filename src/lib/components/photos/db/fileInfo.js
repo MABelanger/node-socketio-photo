@@ -5,11 +5,13 @@ let moment = require('moment');
 // For simplicity, we do not use a database like mongoDb.
 // We use the variable (fileInfo) that reset when the program is reloaded.
 
-let fileInfo = {
+const INIT_FILE_INFO = {
   absoluteFilePath: '',
   date: null,
   number: 0
 };
+
+let fileInfo = Object.assign({}, INIT_FILE_INFO);
 
 function _setAbsoluteFilePath (relativeFilePath) {
   // remove the . from the relativeFilePath
@@ -32,7 +34,7 @@ function _getDateFromNow () {
   return '';
 }
 
-function incrementNumber () {
+function _incrementNumber () {
   fileInfo.number += 1;
 }
 
@@ -43,6 +45,7 @@ function getNumber () {
 function update (relativeFilePath) {
   _setAbsoluteFilePath(relativeFilePath);
   _updateDate();
+  _incrementNumber();
   return getInfo();
 }
 
@@ -53,9 +56,13 @@ function getInfo () {
   };
 }
 
+function clearDb() {
+  fileInfo = Object.assign({}, INIT_FILE_INFO);
+}
+
 module.exports = {
   update,
   getInfo,
-  incrementNumber,
-  getNumber
+  getNumber,
+  clearDb
 };

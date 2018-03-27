@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "server": "export NODE_CORS=true && nodemon --watch src --exec node src/lib/server.js",
+    "test": "mocha ./src/lib/**/test/*.test.js",
+    "test:watch": "npm t -- -w",
     "eslint:src": "eslint --ignore-pattern !**/*.{test,mock}.js src/",
     "eslint:watch": "esw --color --ignore-pattern !**/*.{test,mock}.js src/ -w",
     "eslint:fix": "eslint --fix src/"
@@ -19,6 +21,7 @@
     "socket.io": "^2.0.4"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.9.0",
@@ -26,6 +29,7 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-watch": "^3.1.3",
+    "mocha": "^5.0.5",
     "nodemon": "^1.17.2"
   }
 }

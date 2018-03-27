@@ -4,8 +4,9 @@ let fs = require('fs');
 let utils = require('./utils');
 let fileInfo = require('./fileInfo');
 
+const RELATIVE_MEDIA_PATH = './media/';
+
 function saveImage (dataUri) {
-  fileInfo.incrementNumber();
   let fileNumber = fileInfo.getNumber();
   let {data, fileName} = utils.getDataAndFileName(dataUri, fileNumber);
 
@@ -15,7 +16,7 @@ function saveImage (dataUri) {
       return;
     }
 
-    let relativeFilePath = './media/' + fileName;
+    let relativeFilePath = RELATIVE_MEDIA_PATH + fileName;
     fs.writeFile(relativeFilePath, data, function (err) {
       if (err) {
         reject(err);
@@ -31,5 +32,6 @@ function saveImage (dataUri) {
 
 module.exports = {
   saveImage,
-  getimageInfo: fileInfo.getInfo
+  getimageInfo: fileInfo.getInfo,
+  clearDb: fileInfo.clearDb
 };

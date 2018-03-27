@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+// Headers to enable Cross-origin resource sharing (CORS)
 const middlewareCors = require('./middlewares/cors');
 
 let app = express();
