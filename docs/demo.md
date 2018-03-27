@@ -3,9 +3,10 @@ Le but est de démontrer les possibilités d'utiliser **socket.io** dans les app
 
 Pour montrer un peu tout ca, cette petite démo permet de prendre des **photos (caméra)** et de les **afficher (écran)** automatiquement via **socket.io**.
 
+### Interaction entre back-end et front-end
+
 L'application est découplée à l'aide d'un **back-end** et de **2 clients front-end**. Voici comment ils sont interreliés :
 
-### Interaction entre back-end et front-end
 le **back-end** reçoit des nouvelles images et affichent automatiquement la dernière photo envoyée sur tous les clients connectés.
 
 Par exemple si des clients sont connecté au serveur à l'adresse **'/screen'**. Les clients verront la dernière photo envoyée. Or, si par la suite un utilisateur utilise la caméra à l'adresse **'/camera'** et envoie une nouvelle photo via un POST, les clients **'/screen'** sera en mesure d'afficher automatiquement cette dernière photo. Pour permettre le rafraichissement automatique de la photo envoyé par les clients **'/camera'**, les clients **'/screen'** se connectent au serveur sur un canal de socket.io.
