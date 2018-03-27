@@ -27,4 +27,4 @@ $ curl -H "Content-Type: application/json" -X POST -d '{"dataUri":"data:image/gi
 ```
 You shout see in the browser the logo of nasa without refreshing the page. The socketIo automatically update the last uploaded image.
 
-![alt text](./docs/nasa.gif)
+![alt nasa icon](./docs/nasa.gif)

@@ -11,7 +11,9 @@ Par exemple si des clients sont connecté au serveur à l'adresse **'/screen'**.
 
 Les deux clients permettant d'interagir avec le back-end son donc situé aux URL **'/screen'** et **'/camera'**:
 
-ainsi, l'URL **'/screen'** permet d'afficher la dernière image (mode écran) et l'URL **'/camera'** permet d'envoyer des photos au serveur (mode caméra). Il est possible d'envoyer une photo au serveur avec **Curl** par exemple:
+ainsi, l'URL **'/screen'** permet d'afficher la dernière image (mode écran) et l'URL **'/camera'** permet d'envoyer des photos au serveur (mode caméra).
+
+Par exemple, il est possible d'envoyer une image ![alt nasa icon](./nasa.gif) au serveur avec **Curl**:
 
 ```
 $ curl -H "Content-Type: application/json" -X POST -d '{"dataUri":"data:image/gif;base64,R0lGODlhIAAgAFUAACH5BAEAADIALAAAAAAgACAAhf7//wtAmhJGnSxcqRJBlAg/mT5or3GQxAQ7mFl8uPAALRhLnwFDnx5RpI+o0A5AlfEZI50mTszc7u/v9QE4lWYzZj43f7HE4ZkzZsVkffTN0ihEkwo+lhs/k8wzZswzM//MzJlmmax7m0w3dwlIosyZmWZmmcyswP9mmf+ZmZmZzPqtsZlmZmaZzDNmmcxmmcxmZv8zMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAb/QJlwSCwaj8ikcslsOp/QqFRGeDwIVcKUSAh4Cw2vIPCYdgOIQmDRWBgG6oD2eeYM3INGY+z1locKCkhnAQcHCQ4GFAsCfH0FQoFJfQ0HDQYGhwiNfQEMHYGCg2MFBgkCBgsICQdxDJ8VEBCiSJ2VFGlomQgMGxiyEB9KXQUUBQIHAsW8qyERwBARHRxJBAKIA4iYDgkWFRkgKR4RHyUNDH9HDwgOAA4Oh+0aEDEAFxcmERoABxQBSesOAJgggcWHFRMAhHAxAQQKESYkEAxADQkDBAdKAADgAcOEfRcEZIABQsIFiQASUECioEKFEyJUTEjQQoIDCRo8ZDh5QIIBhQcTHKQjEqiChTwCBiit9CLC0TuFML2ZYxFBGlwMLETI4OBinANvEkAaFkAPiQAYnC5wMABNAGQLygpg8naALwwbGBQ4ltRUgmxzmTzoFaHCAjgL4iYd8CYp1SUjnJJIdewRgrcUnygYwSCAAUedEg9dIolKHDF9HpshhGWL69ewY8s2EgQAOw=="}' https://mquartier.com/api/photos
@@ -38,7 +40,7 @@ Les techniques utilisé sont :
 Au niveau back-end les images sont recu via l'api REST **'/api/photos'** qui reçoit les posts via un JSON contenant l'image encodée en base64. L'image est ensuite sauvegardée sur le serveur dans le dossier **'/media'**. Toutes les images sont sauvegardés et incrémentées du nom de fichier **(-1, -2, -3...)** mais seulement la dernière image est affiché.
 
 
-Au niveau front-end **'/camera'** utilise un module npm [**'react-html5-camera-photo'**](https://www.npmjs.com/package/react-html5-camera-photo) qui peut être réutiliser dans d'autre applications. 
+Au niveau front-end **'/camera'** utilise un module npm ['react-html5-camera-photo'](https://www.npmjs.com/package/react-html5-camera-photo) qui peut être réutiliser dans d'autre applications.
 
 Le code source back-end est disponible sur github :
 https://github.com/MABelanger/node-socketio-photo
