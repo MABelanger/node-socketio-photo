@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const bodyParser = require('body-parser');
+
 
 // Headers to enable Cross-origin resource sharing (CORS)
 const middlewareCors = require('./middlewares/cors');
@@ -13,8 +13,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const photosSocketIo = require('./components/photos/photosSocketIo')(io);
 
-// Limit the json to 50mb
-app.use(bodyParser.json({limit: '50mb'}));
+
 
 // Set CORS to true if the environement NODE_CORS is set.
 if (process.env.NODE_CORS === 'true') {
